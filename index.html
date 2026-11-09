@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101a31">
+  <link rel="icon" href="data:,">
+  <title>Summitbound — A tiny mountain climb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Summitbound platform game"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="Summitbound home"><span class="mark">✦</span> SUMMIT<span>BOUND</span></a>
+      <div class="top-right">
+        <div class="progress-wrap"><span class="eyebrow">THE ASCENT</span><div class="progress-dots" id="progressDots"></div></div>
+        <button class="sound-button" id="soundButton" aria-label="Toggle sound">♫ <span>SOUND ON</span></button>
+      </div>
+    </header>
+    <div class="hud" id="hud" aria-live="polite">
+      <div class="room-label"><span class="room-number">01</span><span class="room-name">THE FOOTHILLS</span></div>
+      <div class="berry-count"><span class="berry-icon">✦</span><span id="berryCount">0</span><span class="berry-total">/ 5</span></div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <section class="intro-card" id="introCard">
+      <div class="card-kicker"><span class="kicker-line"></span> A SMALL ADVENTURE <span class="kicker-line"></span></div>
+      <h1>Find your<br><em>way up.</em></h1>
+      <p>Five quiet screens. One very big mountain.<br>Take a breath, then take the leap.</p>
+      <button class="primary-button" id="startButton">BEGIN THE CLIMB <span>↗</span></button>
+      <div class="intro-foot"><span>← → MOVE</span><span>SPACE JUMP</span><span>X DASH</span></div>
+    </section>
+    <section class="finish-card hidden" id="finishCard">
+      <div class="finish-sparkle">✦</div>
+      <div class="card-kicker"><span class="kicker-line"></span> YOU MADE IT <span class="kicker-line"></span></div>
+      <h2>The view<br>was worth it.</h2>
+      <p id="finishSummary">Five screens down. The whole sky above you.</p>
+      <button class="primary-button" id="againButton">CLIMB AGAIN <span>↗</span></button>
+    </section>
+    <div class="controls-hint" id="controlsHint"><span class="keycap">←</span><span class="keycap">→</span> MOVE <i></i><span class="keycap">SPACE</span> JUMP <i></i><span class="keycap dash-key">X</span> DASH</div>
+    <div class="touch-controls" id="touchControls" aria-label="Touch controls">
+      <div class="touch-move"><button data-control="left" aria-label="Move left">←</button><button data-control="right" aria-label="Move right">→</button></div>
+      <div class="touch-actions"><button data-control="dash" aria-label="Dash">✦</button><button data-control="jump" aria-label="Jump">↑</button></div>
+    </div>
+    <div class="room-transition" id="roomTransition"><span>✦</span><b>HIGHER</b></div>
+    <footer class="bottom-note"><span>KEEP CLIMBING <b>·</b> YOU'RE CLOSER THAN YOU THINK</span><span class="version">A GAME ABOUT THE NEXT STEP</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
